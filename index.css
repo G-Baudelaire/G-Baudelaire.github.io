@@ -495,8 +495,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__image {
   border-radius: 4px;
-  max-height: 400px;
-  width: auto;
+  max-height: 30vw;
 }
 
 @media (min-width: 901px) {
@@ -553,10 +552,16 @@ body:not(.user-is-tabbing) a:focus {
     flex-direction: column-reverse;
     align-items: initial;
   }
+
+  .about__photo-container{
+    max-width: 500px;
+  }
 }
-.about__photo-container{
-  max-width: 400px;
+
+.about__photo-container {
+  margin-bottom: var(--gutter-normal);
 }
+
 @media (min-width: 901px) {
   .about__text {
     flex: 0 0 35%;
