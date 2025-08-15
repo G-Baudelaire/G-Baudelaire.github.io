@@ -496,7 +496,7 @@ body:not(.user-is-tabbing) a:focus {
 .work__image {
   border-radius: 4px;
   max-height: 400px;
-  height: auto;
+  width: auto;
 }
 
 @media (min-width: 901px) {
@@ -554,17 +554,9 @@ body:not(.user-is-tabbing) a:focus {
     align-items: initial;
   }
 }
-
-.about__photo {
-  max-width: 400px; /* or whatever size looks good */
-  height: auto; /* keep aspect ratio */
-  border-radius: 4px; /* optional: makes corners softer */
+.about__photo-container{
+  max-width: 400px;
 }
-
-.about__photo-container {
-  margin-bottom: var(--gutter-normal);
-}
-
 @media (min-width: 901px) {
   .about__text {
     flex: 0 0 35%;
