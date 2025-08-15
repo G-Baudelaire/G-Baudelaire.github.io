@@ -42,7 +42,7 @@
 
     --container-max-width: 1180px;
     --container-normal-width: 800px;
-    --container-medium-width: 700px; 
+    --container-medium-width: 700px;
     --container-small-width: 500px;
 
     --gutter-huge: 12rem;
@@ -60,7 +60,7 @@ html {
     scroll-behavior: smooth;
 }
 
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
     html {
         font-size: 52%;
     }
@@ -68,7 +68,7 @@ html {
 
 body {
     font-size: var(--font-size-small);
-    font-family: var(--font-stack);
+    font-family: var(--font-stack), serif ;
     font-weight: 400;
     color: var(--white-1);
     line-height: var(--line-height-normal);
@@ -81,25 +81,25 @@ body {
     margin: 0 auto;
 }
 
-@media(max-width: 1340px) {
+@media (max-width: 1340px) {
     .row {
         max-width: 1100px;
     }
 }
 
-@media(max-width: 1240px) {
+@media (max-width: 1240px) {
     .row {
         padding: 0 var(--gutter-medium);
     }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     .row {
         padding: 0 var(--gutter-normal);
     }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     .row {
         padding: 0 var(--gutter-small);
     }
@@ -134,7 +134,7 @@ h3 {
     font-weight: 400;
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .heading-primary {
         font-size: 6.5rem;
     }
@@ -159,7 +159,7 @@ h3 {
     margin-bottom: var(--gutter-small);
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .heading-primary {
         font-size: var(--font-size-large);
     }
@@ -177,8 +177,8 @@ p {
     margin: var(--gutter-small-1) 0;
 }
 
-@media(max-width: 900px) {
-    p { 
+@media (max-width: 900px) {
+    p {
         max-width: var(--container-small-width);
     }
 }
@@ -219,7 +219,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: 1rem 4.2rem;
     text-decoration: none;
     color: inherit;
-    border: 1px solid  var(--pink);
+    border: 1px solid var(--pink);
     font-weight: 400;
 }
 
@@ -319,13 +319,13 @@ body:not(.user-is-tabbing) a:focus {
     height: 70%;
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .back-to-top {
         right: 2rem;
     }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .back-to-top {
         right: 1rem;
     }
@@ -350,19 +350,19 @@ body:not(.user-is-tabbing) a:focus {
     margin-right: var(--gutter-medium);
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .nav {
         justify-content: center;
     }
 }
 
-@media(max-width: 400px) {
+@media (max-width: 400px) {
     .nav__item:not(:last-child) {
         margin-right: var(--gutter-normal);
     }
 }
 
-@media(max-width: 300px) {
+@media (max-width: 300px) {
     .nav {
         font-size: var(--font-size-small);
     }
@@ -404,8 +404,8 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./images/header.jpg');
+    background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .4)),
+    url('./images/header.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -426,7 +426,7 @@ body:not(.user-is-tabbing) a:focus {
     font-size: var(--font-size-medium);
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .header {
         text-align: center;
     }
@@ -445,7 +445,7 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .work__box {
         align-items: initial;
         flex-direction: column-reverse;
@@ -456,7 +456,7 @@ body:not(.user-is-tabbing) a:focus {
     margin-bottom: 25rem;
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .work__box:not(:last-child) {
         margin-bottom: 20rem;
     }
@@ -490,16 +490,22 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__image-box {
     margin-bottom: var(--gutter-normal);
+    width: auto;
 }
 
-@media(min-width: 901px) {
+.work__image {
+    border-radius: 4px;
+    max-height: 30vw;
+}
+
+@media (min-width: 901px) {
     .work__image-box {
         flex: 1;
         margin: 0 0 0 10rem;
     }
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .work__code {
         height: 4rem;
     }
@@ -520,7 +526,7 @@ body:not(.user-is-tabbing) a:focus {
     max-width: 18rem;
 }
 
-@media(max-width: 1240px) {
+@media (max-width: 1240px) {
     .client__logos {
         overflow-x: scroll;
         padding: var(--gutter-normal);
@@ -541,22 +547,28 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
     .about__content {
         flex-direction: column-reverse;
         align-items: initial;
     }
 }
 
+.about__photo {
+    max-width: 400px; /* or whatever size looks good */
+    height: auto; /* keep aspect ratio */
+    border-radius: 4px; /* optional: makes corners softer */
+}
+
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
 }
 
-@media(min-width: 901px) {
+@media (min-width: 901px) {
     .about__text {
         flex: 0 0 35%;
     }
-    
+
     .about__photo-container {
         flex: 1;
         margin: 0 var(--gutter-huge) 0 0;
@@ -606,8 +618,8 @@ body:not(.user-is-tabbing) a:focus {
     transform: translateY(3px);
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .footer {
         padding: var(--gutter-medium) 0;
-    } 
+    }
 }
