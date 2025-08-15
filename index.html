@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
 
   <!-- Put your site title here -->
   <title>
@@ -13,178 +13,184 @@
 
   <meta name="description" content="Portfolio website for Germain McCaulay-Jones.">
   <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
-  <meta name="keywords" content="Python, C++, Pandas, Numpy, Git" />
-  <link rel="stylesheet" href="index.css" />
+  <meta name="keywords" content="Python, C++, Pandas, Numpy, Git"/>
+  <link rel="stylesheet" href="index.css"/>
 </head>
 
 <body>
 
-  <!-- ***** Header ***** -->
+<!-- ***** Header ***** -->
 
-  <header class="header" role="banner" id="top">
+<header class="header" role="banner" id="top">
+  <div class="row">
+    <nav class="nav" role="navigation">
+      <ul class="nav__items">
+        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+        <!--          <li class="nav__item"><a href="#clients" class="nav__link">Clients</a></li>-->
+        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header__text-box row">
+    <div class="header__text">
+      <h1 class="heading-primary">
+        <span>Germain Darnell McCaulay-Jones</span>
+      </h1>
+      <!-- Put a small paragraph about yourself -->
+      <p>University of Bath Graduate in Computer Science and Mathematics (MComp)</p>
+      <a href="mailto:gmccaulayjones@gmail.com" class="btn btn--pink">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+
+  <!-- ***** Work ***** -->
+
+  <section class="work" id="work">
     <div class="row">
-      <nav class="nav" role="navigation">
-        <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-<!--          <li class="nav__item"><a href="#clients" class="nav__link">Clients</a></li>-->
-          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="header__text-box row">
-      <div class="header__text">
-        <h1 class="heading-primary">
-          <span>Germain Darnell McCaulay-Jones</span>
-        </h1>
-        <!-- Put a small paragraph about yourself -->
-        <p>University of Bath Graduate in Computer Science and Mathematics (MComp)</p>
-        <a href="mailto:gmccaulayjones@gmail.com" class="btn btn--pink">Get in touch</a>
-      </div>
-    </div>
-  </header>
+      <h2>Projects</h2>
+      <div class="work__boxes">
 
-  <main role="main">
+        <!-- Each div with the work__box class is a project. -->
 
-    <!-- ***** Work ***** -->
+        <div class="work__box">
+          <div class="work__text">
+            <h3>Age and Gender Prediction Model</h3>
+            <p>Convolutional neural network to predict age and gender from images of faces.</p>
+            <ul class="work__list">
+              <li>Python</li>
+              <li>Tensorflow</li>
+              <li>Numpy</li>
+              <li>Matplotlib</li>
+            </ul>
 
-    <section class="work" id="work">
-      <div class="row">
-        <h2>Projects</h2>
-        <div class="work__boxes">
-
-          <!-- Each div with the work__box class is a project. -->
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Age and Gender Prediction Model</h3>
-              <p>Convolutional neural network to predict age and gender from images of faces.</p>
-              <ul class="work__list">
-                <li>Python</li>
-                <li>Tensorflow</li>
-                <li>Numpy</li>
-                <li>Matplotlib</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="https://github.com/D-And-G-Productions/AgeAndGenderClassifier" title="View Source Code" target="_blank">
-                  <img src="./images/github.svg" class="work__code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              <img src="./images/age-and-gender-project.png" class="work__image" alt="Project 1" />
+            <div class="work__links">
+              <a href="https://github.com/D-And-G-Productions/AgeAndGenderClassifier" title="View Source Code"
+                 target="_blank">
+                <img src="./images/github.svg" class="work__code" alt="GitHub">
+              </a>
             </div>
           </div>
-
-<!--          <div class="work__box">-->
-<!--            <div class="work__text">-->
-<!--              <h3>Age and Gender Prediction Model</h3>-->
-<!--              <p>Convolutional neural network to predict age and gender from images of facial images.</p>-->
-<!--              <ul class="work__list">-->
-<!--                <li>Python</li>-->
-<!--                <li>Tensorflow</li>-->
-<!--                <li>Numpy</li>-->
-<!--                <li>Matplotlib</li>-->
-<!--              </ul>-->
-
-<!--              <div class="work__links">-->
-<!--                <a href="https://nisar.surge.sh" target="_blank" class="link__text">-->
-<!--                  Visit Site <span>&rarr;</span>-->
-<!--                </a>-->
-<!--                <a href="https://github.com/nisarhassan12/portfolio" title="View Source Code" target="_blank">-->
-<!--                  <img src="./images/github.svg" class="work__code" alt="GitHub">-->
-<!--                </a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="work__image-box">-->
-<!--              <img src="./images/project-1.png" class="work__image" alt="Project 1" />-->
-<!--            </div>-->
-<!--          </div>-->
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ***** Clients ***** -->
-
-<!--    <section class="client" id="clients">-->
-<!--      <div class="row">-->
-<!--        <h2>Clients</h2>-->
-<!--        <div class="client__logos">-->
-          <!-- Add logos of the clients or companies you'have worked with. -->
-<!--          <img src="./images/ronjones.png" class="client__logo" alt="Company 2" />-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
-
-    <!-- ***** About ***** -->
-
-    <section class="about" id="about">
-      <div class="row">
-        <h2>About Me</h2>
-        <div class="about__content">
-          <div class="about__text">
-            <p>
-              Graduate looking for roles in quantitative development in London with hobbies including (but not limited to)
-              reading, journaling, coding, working out, gaming, cooking, and building community. Technical aspects are
-              addressed in my resume below.
-            </p>
-            <a href="/pdfs/CurriculumVitae.pdf" class="btn" download="Germain McCaulay-Jones Resume">My Resume</a>
-          </div>
-
-          <div class="about__photo-container">
-            <img class="about__photo" src="./images/germain-mccaulay-jones.jpg" alt="" />
+          <div class="work__image-box">
+            <img src="./images/age-and-gender-project.png" class="work__image" alt="Project 1"/>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- ***** Contact ***** -->
+        <!--          <div class="work__box">-->
+        <!--            <div class="work__text">-->
+        <!--              <h3>Age and Gender Prediction Model</h3>-->
+        <!--              <p>Convolutional neural network to predict age and gender from images of facial images.</p>-->
+        <!--              <ul class="work__list">-->
+        <!--                <li>Python</li>-->
+        <!--                <li>Tensorflow</li>-->
+        <!--                <li>Numpy</li>-->
+        <!--                <li>Matplotlib</li>-->
+        <!--              </ul>-->
 
-  <section class="contact" id="contact">
-    <div class="row">
-      <h2>Get in Touch</h2>
-      <div class="contact__info">
-        <p>
-          Are you looking for a fast-learning developer with a mathematical background? Contact me via email,
-          and I'll get back to you as soon as possible.
-        </p>
-        <a href="mailto:gmccaulayjones@gmail.com" class="btn">gmccaulayjones@gmail.com</a>
+        <!--              <div class="work__links">-->
+        <!--                <a href="https://nisar.surge.sh" target="_blank" class="link__text">-->
+        <!--                  Visit Site <span>&rarr;</span>-->
+        <!--                </a>-->
+        <!--                <a href="https://github.com/nisarhassan12/portfolio" title="View Source Code" target="_blank">-->
+        <!--                  <img src="./images/github.svg" class="work__code" alt="GitHub">-->
+        <!--                </a>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--            <div class="work__image-box">-->
+        <!--              <img src="./images/project-1.png" class="work__image" alt="Project 1" />-->
+        <!--            </div>-->
+        <!--          </div>-->
+
       </div>
     </div>
   </section>
 
-  <!-- ***** Footer ***** -->
+  <!-- ***** Clients ***** -->
 
-  <footer role="contentinfo" class="footer">
+  <!--    <section class="client" id="clients">-->
+  <!--      <div class="row">-->
+  <!--        <h2>Clients</h2>-->
+  <!--        <div class="client__logos">-->
+  <!-- Add logos of the clients or companies you'have worked with. -->
+  <!--          <img src="./images/ronjones.png" class="client__logo" alt="Company 2" />-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </section>-->
+
+  <!-- ***** About ***** -->
+
+  <section class="about" id="about">
     <div class="row">
-      <!-- Update the links to point to your accounts -->
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://github.com/G-Baudelaire/" title="Link to Github Profile">
-            <img src="./images/github.svg" class="footer__social-image" alt="Github">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://www.linkedin.com/in/germain-mccaulay-jones/">
-            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
-          </a>
-        </li>
-      </ul>
+      <h2>About Me</h2>
+      <div class="about__content">
+        <div class="about__text">
+          <p>
+            Graduate looking for quantitative development roles in London.
+          </p>
+          <p>
+            My hobbies include (but are not limited to): Reading, Journaling, Programming, Working Out, Gaming, Cooking,
+            and Building Community.
+          </p>
+          <p>
+            Technical aspects are addressed in my resume below.
+          </p>
+          <a href="/pdfs/CurriculumVitae.pdf" class="btn" download="Germain McCaulay-Jones Resume">My Resume</a>
+        </div>
 
-      <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
-      <p>
-        &copy; 2020 - Template designed & developed by <a href="https://nisar.dev" class="link">Nisar</a>.
-      </p>
+        <div class="about__photo-container">
+          <img class="about__photo" src="./images/germain-mccaulay-jones.jpg" alt=""/>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <a href="#top" class="back-to-top" title="Back to Top">
-    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
-  </a>
-  <script src="./index.js"></script>
+<!-- ***** Contact ***** -->
+
+<section class="contact" id="contact">
+  <div class="row">
+    <h2>Get in Touch</h2>
+    <div class="contact__info">
+      <p>
+        Are you looking for a fast-learning developer with a mathematical background? Contact me via email,
+        and I'll get back to you as soon as possible.
+      </p>
+      <a href="mailto:gmccaulayjones@gmail.com" class="btn">gmccaulayjones@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ***** Footer ***** -->
+
+<footer role="contentinfo" class="footer">
+  <div class="row">
+    <!-- Update the links to point to your accounts -->
+    <ul class="footer__social-links">
+      <li class="footer__social-link-item">
+        <a href="https://github.com/G-Baudelaire/" title="Link to Github Profile">
+          <img src="./images/github.svg" class="footer__social-image" alt="Github">
+        </a>
+      </li>
+      <li class="footer__social-link-item">
+        <a href="https://www.linkedin.com/in/germain-mccaulay-jones/">
+          <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+        </a>
+      </li>
+    </ul>
+
+    <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
+    <p>
+      &copy; 2020 - Template designed & developed by <a href="https://nisar.dev" class="link">Nisar</a>.
+    </p>
+  </div>
+</footer>
+
+<a href="#top" class="back-to-top" title="Back to Top">
+  <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
+</a>
+<script src="./index.js"></script>
 </body>
 
 </html>
