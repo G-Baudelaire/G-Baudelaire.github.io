@@ -495,7 +495,8 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__image {
     border-radius: 4px;
-    max-height: 30vw;
+    max-height: 400px;
+    height: auto;
 }
 
 @media (min-width: 901px) {
