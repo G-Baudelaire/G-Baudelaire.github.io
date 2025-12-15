@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="./images/favicon.svg"/>
 
   <!-- Put your site title here -->
   <title>
@@ -26,7 +26,6 @@
     <nav class="nav" role="navigation">
       <ul class="nav__items">
         <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-        <!--          <li class="nav__item"><a href="#clients" class="nav__link">Clients</a></li>-->
         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
@@ -38,7 +37,8 @@
         <span>Germain D. McCaulay-Jones</span>
       </h1>
       <!-- Put a small paragraph about yourself -->
-      <p>University of Bath Graduate in Computer Science and Mathematics (MComp)</p>
+      <p>Master of Computation in Computer Science and Mathematics (Honours)</p>
+      <p>Graduate open to London based roles in Software and Data Engineering</p>
       <a href="mailto:gmccaulayjones@gmail.com" class="btn btn--pink">Get in touch</a>
     </div>
   </div>
@@ -53,31 +53,45 @@
       <h2>Projects</h2>
       <div class="work__boxes">
 
-        <!-- Each div with the work__box class is a project. -->
-
         <div class="work__box">
           <div class="work__text">
-            <h3>Age and Gender Prediction Model</h3>
-            <p>Convolutional neural network (CNN) to predict age and gender from faces. End-to-end application utilising
-              Docker for a locally ran web-application.</p>
+            <h3>ML Age Prediction Application</h3>
+            <p>Age Prediction application using custom and fine tuned (ResNet) convolutional neural networks.</p>
+            <b>Languages:</b>
             <ul class="work__list">
               <li>Python</li>
+              <li>TypeScript</li>
+              <li>Bash</li>
+              <li>CSS</li>
+              <li>HTML</li>
+            </ul>
+
+            <b>Frameworks:</b>
+            <ul class="work__list">
               <li>Tensorflow</li>
-              <li>Numpy</li>
-              <li>Matplotlib</li>
-              <li>Docker</li>
               <li>FastAPI</li>
+              <li>Numpy</li>
+              <li>React</li>
+            </ul>
+
+            <b>Technologies:</b>
+            <ul class="work__list">
+              <li>Docker</li>
+              <li>Google Cloud Platform</li>
             </ul>
 
             <div class="work__links">
-              <a href="https://github.com/D-And-G-Productions/AgeAndGenderClassifier"
-                 title="View Source Code" target="_blank">
+              <a href="https://gmccaulayjones.com/age-prediction" target="_blank" class="link__text">
+                Visit Site <span>&rarr;</span>
+              </a>
+              <a href="https://github.com/G-Baudelaire/age-prediction"
+                 title="Source Code" target="_blank">
                 <img src="./images/github.svg" class="work__code" alt="GitHub">
               </a>
             </div>
           </div>
           <div class="work__image-box">
-            <img src="./images/model-4-mini.png" class="work__image" alt="Project 1"/>
+            <img src="./images/age-prediction-website-image.png" class="work__image" alt="Age Prediction Website Image"/>
           </div>
         </div>
 
@@ -151,17 +165,30 @@
       <div class="about__content">
         <div class="about__text">
           <p>
-            Graduate looking for quantitative development roles in London.
+            Graduate looking for software development and data engineering roles in London.
           </p>
           <p>
-            My hobbies include (but are not limited to): Reading, Journaling, Programming, Working Out,
-            Gaming, Cooking,
-            Fashion and Building Community.
+            My hobbies and past-times include:
           </p>
+          <ul class="work__list">
+            <li>Journaling</li>
+            <li>Programming</li>
+            <li>Powerlifting and Calisthenics</li>
+            <li>Gaming</li>
+            <li>Cooking</li>
+            <li>Fashion</li>
+            <li>Politics</li>
+            <li>Reading</li>
+          </ul>
           <p>
-            Technical aspects are addressed in my resume below.
+            With some of my favourite books recently being:
           </p>
-          <a href="/pdfs/Germain%20McCaulay-Jones.pdf" class="btn" download="Germain McCaulay-Jones">My Resume</a>
+          <ul class="work__list">
+            <li>The Prophet - Khalil Gibran</li>
+            <li>How To Lose A Country - Ece Temelkuran</li>
+            <li>Fundamentals of Data Engineering - Joe Reis & Matt Housley</li>
+          </ul>
+          <a href="/pdfs/Germain%20McCaulay-Jones.pdf" class="btn" download="Germain McCaulay-Jones">Curriculum Vitae</a>
         </div>
 
         <div class="about__photo-container">
@@ -177,12 +204,10 @@
 <section class="contact" id="contact">
   <div class="row">
     <h2>Get in Touch</h2>
-    <div class="contact__info">
-      <p>
-        Contact me via email.
-      </p>
-      <a href="mailto:gmccaulayjones@gmail.com" class="btn">gmccaulayjones@gmail.com</a>
-    </div>
+      <p>For any enquires or connections the best place to contact me is via email, or my LinkedIn.</p>
+      <div class="contact__info">
+        <a href="mailto:gmccaulayjones@gmail.com" class="btn">gmccaulayjones@gmail.com</a>
+      </div>
   </div>
 </section>
 
