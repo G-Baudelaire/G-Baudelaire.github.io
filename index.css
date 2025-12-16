@@ -516,28 +516,6 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- Badges ----- */
 /* --------------------------------------- */
 
-/* .client__logos { */
-/*   display: flex; */
-/*   justify-content: space-between; */
-/*   overflow-x: scroll; */
-/*   scroll-snap-type: x mandatory; */
-/* } */
-/**/
-/* .client__logo { */
-/*   max-width: 18rem; */
-/*   scroll-snap-align: start; */
-/* } */
-/**/
-/* @media (max-width: 1240px) { */
-/*   .client__logos { */
-/*     overflow-x: scroll; */
-/*     padding: var(--gutter-normal); */
-/*   } */
-/**/
-/*   .client__logo:not(:last-of-type) { */
-/*     margin-right: var(--gutter-medium); */
-/*   } */
-/* } */
 
 .client__logos {
   display: flex;
