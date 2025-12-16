@@ -3,10 +3,10 @@
 /* --------------------------------------- */
 
 @font-face {
-  font-family: 'Hk Grotesk';
+  font-family: 'JetBrainsMonoNerdFont';
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/HKGrotesk-Regular.woff') format('woff');
+  src: url('./fonts/JetBrainsMonoNerdFont-Regular.ttf') format('woff');
 }
 
 @font-face {
@@ -29,12 +29,12 @@
   --font-size-medium-1: 3.6rem;
   --font-size-large: 5.5rem;
   --font-size-huge: 7.5rem;
-  --font-stack: 'Hk Grotesk', sans-serif;
+  --font-stack: 'JetBrainsMonoNerdFont', sans-serif;
 
   --line-height-normal: 1.7;
   --line-height-small: 1.2;
 
-  --grey: #202020;
+  --black: #000000;
   --pink: #ff3258;
   --white: #f0e9f2;
   --white-1: #e5e5e6da;
@@ -73,7 +73,7 @@ body {
   font-weight: 400;
   color: var(--white-1);
   line-height: var(--line-height-normal);
-  background: var(--grey);
+  background: var(--black);
   overflow-x: hidden;
 }
 
@@ -513,28 +513,54 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 /* --------------------------------------- */
-/* ----- Clients ----- */
+/* ----- Badges ----- */
 /* --------------------------------------- */
+
+/* .client__logos { */
+/*   display: flex; */
+/*   justify-content: space-between; */
+/*   overflow-x: scroll; */
+/*   scroll-snap-type: x mandatory; */
+/* } */
+/**/
+/* .client__logo { */
+/*   max-width: 18rem; */
+/*   scroll-snap-align: start; */
+/* } */
+/**/
+/* @media (max-width: 1240px) { */
+/*   .client__logos { */
+/*     overflow-x: scroll; */
+/*     padding: var(--gutter-normal); */
+/*   } */
+/**/
+/*   .client__logo:not(:last-of-type) { */
+/*     margin-right: var(--gutter-medium); */
+/*   } */
+/* } */
 
 .client__logos {
   display: flex;
-  justify-content: space-between;
-  filter: invert(100%) grayscale(100%) opacity(.8);
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .client__logo {
-  height: 6.5rem;
-  max-width: 18rem;
+  flex: 0 0 auto;
+  height: 18rem;
+  width: auto;
+  scroll-snap-align: start;
+  object-fit: contain;
+  display: block;
 }
 
+/* optional: make them smaller on narrow screens */
 @media (max-width: 1240px) {
-  .client__logos {
-    overflow-x: scroll;
-    padding: var(--gutter-normal);
-  }
-
-  .client__logo:not(:last-of-type) {
-    margin-right: var(--gutter-medium);
+  .client__logo {
+    width: 14rem;
   }
 }
 
