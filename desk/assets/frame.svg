@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 243">
+  <rect x="4" y="4" width="232" height="235" rx="6" fill="#b08a4a" stroke="#6e5326" stroke-width="4"/>
+  <rect x="26" y="26" width="188" height="191" fill="#e8e1d3"/>
+  <circle cx="120" cy="95" r="30" fill="#9b9488"/>
+  <path d="M60 217c0-45 30-65 60-65s60 20 60 65z" fill="#9b9488"/>
+  <text x="120" y="238" font-family="monospace" font-size="14" fill="#6e5326" text-anchor="middle">ME</text>
+</svg>
