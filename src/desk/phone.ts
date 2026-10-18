@@ -28,7 +28,7 @@ interface App {
 }
 
 const APPS: readonly App[] = [
-  { name: "Mail", href: EMAIL_URL, colour: "#2f7de1", glyph: "✉", external: false },
+  { name: "Mail", href: EMAIL_URL, colour: "#2f7de1", icon: "../images/mail-app.svg", fullBleed: true, external: true },
   { name: "GitHub", href: GITHUB_PROFILE, colour: "#1b1f24", icon: "../images/github/GitHub_Invertocat_White.svg", external: true },
   { name: "LinkedIn", href: LINKEDIN, colour: "#0a66c2", icon: "../images/linkedin.svg", external: true },
   { name: "Substack", href: SUBSTACK, colour: "#ff6719", icon: "../images/substack/substack-app-logo.png", fullBleed: true, external: true },

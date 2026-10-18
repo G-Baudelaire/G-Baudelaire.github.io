@@ -6,13 +6,15 @@
 import { PanelId, ViewKind, type SelectableItem } from "./scene.js";
 import { PROJECTS, type Project } from "./projects.js";
 
+const OS_NAME = "GermainOS";
+const APP_NAME = "Projects";
 const GITHUB_ICON = "../images/github/GitHub_Invertocat_Black.svg";
 
 export const MONITOR_ITEM: SelectableItem = {
   id: "monitor", label: "Projects", src: "assets/monitor.svg",
   x: 28, y: 12.4, w: 36, h: 45.6,
   selectable: true, panel: PanelId.Projects,
-  view: { kind: ViewKind.Screen, screen: { x: 3.8, y: 5.4, w: 92.4, h: 73.2 }, fit: 0.8, persistent: true },
+  view: { kind: ViewKind.Screen, screen: { x: 3.8, y: 5.2, w: 92.4, h: 73.4 }, fit: 0.8, persistent: true },
 };
 
 function el<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text?: string): HTMLElementTagNameMap[K] {
@@ -70,11 +72,20 @@ function buildTile(project: Project): HTMLElement {
   return tile;
 }
 
+/* Menu bar across the top of the screen: the operating system, then the app that is open. */
+function buildMenuBar(): HTMLElement {
+  const bar = el("header", "menubar");
+  bar.appendChild(el("span", "menubar__os", OS_NAME));
+  bar.appendChild(el("span", "menubar__app", APP_NAME));
+  return bar;
+}
+
 /* The panel that gets mounted on the monitor's screen. */
 export function buildProjectsPanel(): HTMLElement {
   const panel = el("section", "panel");
   panel.id = `panel-${PanelId.Projects}`;
   panel.setAttribute("aria-label", "Projects");
+  panel.appendChild(buildMenuBar());
   const grid = el("div", "tiles");
   for (const project of PROJECTS) grid.appendChild(buildTile(project));
   panel.appendChild(grid);
