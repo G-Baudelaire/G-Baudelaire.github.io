@@ -32,3 +32,11 @@ Log of design decisions for the site overhaul. Newest at the bottom.
 
 - Long-term: build TypeScript in CI (GitHub Actions runs `tsc` and deploys to Pages), `js/` gitignored, repo contains only `.ts`. Requires switching the Pages source to "GitHub Actions" in repo settings.
 - For now: keep committing the generated `js/` output; edit only `.ts` files. CI work is deferred.
+
+## 2026-10-17 (diegetic selections)
+
+- Each selectable item has a `view` in `src/desk/scene.ts`: `screen` (content rendered on the object, interactive), `side` (item zooms to an anchor, panel beside it) or `overlay` (old floating panel).
+- Monitor and phone use `screen`: the panel element is moved into a `.screen` box over the art's screen area (`screen` rect = % of the item's box) and sized in `cqw` (stage is a size container), so text scales with the scene. **When real art arrives, re-measure each `screen` rect.**
+- Picture frame uses `side`: the photo (`photo` in scene.ts) is inside the frame on the desk from the start; zooming moves the frame to the left and the bio text appears on the right.
+- Still `overlay`: cap (qualifications), books, notepad. Candidates for diegetic treatment later (e.g. certificate on the wall, open book).
+- Placeholder art for the phone is tiny on the desk (4% wide) and zooms ~6x; raster art for it will need to be high resolution.

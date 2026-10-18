@@ -40,3 +40,11 @@ Hand sketch saved at `.claude/design/layout-sketch.png`. Reading of it:
 ## Later
 
 - [ ] Move TypeScript build to GitHub Actions and stop committing `js/` (see decisions.md, "build strategy").
+
+## Todo: diegetic selections (2026-10-17)
+
+Selecting an item should feel like moving closer to it, not opening a web overlay.
+
+- [x] 1. Monitor: zoom in so the screen fills the view; project list is rendered *on* the screen and is interactive (scroll, click links).
+- [x] 2. Phone: same treatment; the fake apps render on the phone's own screen.
+- [x] 3. Picture frame: zoom with the frame/photo on the left and bio text appearing on the right. The photo of me sits inside the frame on the desk from the start (not only after zoom).

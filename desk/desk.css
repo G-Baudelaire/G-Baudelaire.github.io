@@ -42,6 +42,7 @@ a { color: var(--pink); }
   left: calc(50% - var(--w) / 2);
   top: calc(50% - var(--w) * 9 / 32);
   transform-origin: 0 0;
+  container-type: inline-size; /* lets on-screen content size itself in cqw */
   transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
@@ -56,19 +57,41 @@ a { color: var(--pink); }
 .item { position: absolute; }
 .item--decor { pointer-events: none; }
 
-.item--select {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
+.item--select { transition: transform 0.2s ease, filter 0.2s ease; }
 .item--select:hover,
-.item--select:focus-visible {
-  outline: none;
+.item--select:has(:focus-visible) {
   transform: translateY(-1.5%) scale(1.04);
   filter: drop-shadow(0 0 0.6vw var(--pink)) brightness(1.15);
 }
-.zoomed .item--select { pointer-events: none; transform: none; filter: none; }
+.zoomed .item--select { transform: none !important; filter: none !important; }
+
+.item__hit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.item__hit:focus-visible { outline: none; }
+.zoomed .item__hit { pointer-events: none; }
+
+.item__photo {
+  position: absolute;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Content drawn on an object's screen (monitor, phone). Hidden until zoomed in. */
+.screen {
+  position: absolute;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.item--open .screen { visibility: visible; opacity: 1; }
 
 .label {
   position: fixed;
@@ -129,67 +152,55 @@ a { color: var(--pink); }
   width: min(1000px, 100%);
   max-height: 88vh;
   overflow-y: auto;
-  padding: 3rem;
+  padding: 3em;
+  font-size: 16px;
   background: var(--panel);
   border: 1px solid #2c2a36;
   border-radius: 10px;
 }
-.panel h2 { margin-bottom: 1.2rem; color: var(--pink); }
-.panel h3 { margin: 1.2rem 0 0.4rem; }
-.panel p, .panel ul { margin-bottom: 0.8rem; }
-.panel ul { padding-left: 1.4rem; }
+.panel h2 { margin-bottom: 0.8em; color: var(--pink); }
+.panel h3 { margin: 0.8em 0 0.3em; }
+.panel p, .panel ul { margin-bottom: 0.8em; }
+.panel ul { padding-left: 1.4em; }
 .tag { opacity: 0.7; font-size: 0.9em; }
 
-.back {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 20;
-  font: inherit;
-  font-size: 14px;
-  color: var(--black);
-  background: var(--pink);
+/* Bio sits to the right of the zoomed picture frame, with no dimming */
+.panels[data-mode="side"] { place-items: center end; padding-left: 50vw; }
+.panels--open[data-mode="side"] { background: transparent; }
+
+/* Panels rendered on an object's screen. Sizes are in cqw (% of the stage width),
+   so they scale with the scene and look right once zoomed. */
+.panel--screen {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  max-height: none;
+  padding: 0.9cqw 1.1cqw;
+  font-size: 0.55cqw;
   border: 0;
-  border-radius: 4px;
-  padding: 0.4em 1em;
-  cursor: pointer;
+  border-radius: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink) transparent;
 }
-.back { display: none; }
-.zoomed .back { display: block; }
+#panel-projects { --panel: #0f2a3d; }
+#panel-contact { --panel: #274b63; font-size: 0.3cqw; padding: 0.5cqw 0.15cqw; }
+.item[data-id="phone"] .screen { border-radius: 0.15cqw; }
 
 /* Projects */
-.project { padding: 1.2rem 0; border-top: 1px solid #2c2a36; }
+.project { padding: 1.2em 0; border-top: 1px solid #2c2a36; }
 .project:first-of-type { border-top: 0; }
 
-/* Bio: frame left, text right */
-.bio { display: grid; grid-template-columns: minmax(200px, 1fr) 2fr; gap: 2.5rem; align-items: start; }
-.bio__frame {
-  padding: 14px;
-  background: #b08a4a;
-  border: 4px solid #6e5326;
-  border-radius: 6px;
-}
-.bio__frame img { display: block; width: 100%; }
-@media (max-width: 700px) { .bio { grid-template-columns: 1fr; } }
-
 /* Qualifications */
-.badges { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem; }
+.badges { display: flex; flex-wrap: wrap; gap: 1.2em; margin-top: 1em; }
 .badges img { width: 110px; }
 
-/* Phone */
-.phone {
-  width: min(280px, 100%);
-  margin: 0 auto;
-  padding: 2.2rem 1.4rem 2.6rem;
-  background: #14131a;
-  border: 3px solid #555;
-  border-radius: 34px;
-}
-.phone__time { text-align: center; font-size: 13px; opacity: 0.7; margin-bottom: 1.6rem; }
-.phone__apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem 0.6rem; }
-.app { display: grid; justify-items: center; gap: 0.4rem; text-decoration: none; color: var(--white); font-size: 12px; }
-.app__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 14px; font-size: 26px; }
-.app:hover .app__icon, .app:focus-visible .app__icon { outline: 2px solid var(--pink); }
+/* Phone home screen */
+.phone__time { text-align: center; font-size: 0.9em; opacity: 0.7; margin-bottom: 1.4em; }
+.phone__apps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4em 0.2em; margin: 0; }
+.app { display: grid; justify-items: center; gap: 0.4em; text-decoration: none; color: var(--white); font-size: 0.55em; }
+.app__icon { display: grid; place-items: center; width: 3.6em; height: 3.6em; border-radius: 0.9em; }
+.app__icon span { font-size: 1.8em; line-height: 1; }
+.app:hover .app__icon, .app:focus-visible .app__icon { outline: 0.15em solid var(--pink); }
 .app--mail .app__icon { background: #2f7de1; }
 .app--phone .app__icon { background: #35b558; }
 .app--substack .app__icon { background: #ff6719; }
