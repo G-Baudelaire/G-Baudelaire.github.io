@@ -48,3 +48,15 @@ Selecting an item should feel like moving closer to it, not opening a web overla
 - [x] 1. Monitor: zoom in so the screen fills the view; project list is rendered *on* the screen and is interactive (scroll, click links).
 - [x] 2. Phone: same treatment; the fake apps render on the phone's own screen.
 - [x] 3. Picture frame: zoom with the frame/photo on the left and bio text appearing on the right. The photo of me sits inside the frame on the desk from the start (not only after zoom).
+
+## Todo: monitor and projects (2026-10-18)
+
+Decisions in decisions.md ("monitor / projects plan"). Built 2026-10-18 (compiles; not yet viewed in a browser).
+
+- [x] 1. `Project` type + projects array in their own file (e.g. `src/desk/projects.ts`).
+- [x] 2. Monitor module in its own file (e.g. `src/desk/monitor.ts`): renders the tile grid, owns monitor screen behaviour. Move monitor-related code out of `desk.ts` / `scene.ts`.
+- [x] 3. Tile: square logo slot top-left (contained, centred), name to its right, description below, links after. GitHub logo for source.
+- [x] 4. Grid always visible on the monitor; interactive only when zoomed in; scrolls when it overflows.
+- [x] 5. Flat hover (lift, border, image scale); no gradients.
+- [x] 6. Reduce type size / add padding; remove tech stack lines from the desk page.
+- [x] 7. Remove the old `#panel-projects` text blocks from `desk/index.html`.

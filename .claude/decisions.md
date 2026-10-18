@@ -40,3 +40,14 @@ Log of design decisions for the site overhaul. Newest at the bottom.
 - Picture frame uses `side`: the photo (`photo` in scene.ts) is inside the frame on the desk from the start; zooming moves the frame to the left and the bio text appears on the right.
 - Still `overlay`: cap (qualifications), books, notepad. Candidates for diegetic treatment later (e.g. certificate on the wall, open book).
 - Placeholder art for the phone is tiny on the desk (4% wide) and zooms ~6x; raster art for it will need to be high resolution.
+
+## 2026-10-18 (monitor / projects plan)
+
+- Monitor screen shows a tiled grid of projects **at all times**, including zoomed out, so the monitor looks real; zooming only lets you see and use what is already on the screen. Zoomed out the tiles are non-interactive; zoomed in they are live.
+- Tile layout: fixed square logo slot top-left (image centred and contained inside it, so differing image sizes/ratios all fit); project name immediately right of the slot; description underneath; links after that. Existing images are reused (`CrowLogo.svg`, `age-prediction-website-image.png`, `matrix-project.png`).
+- Links: GitHub logo (`images/github.svg`) for source; "Visit site" text link only where a live site exists. Icon links get `aria-label`s and visible focus states.
+- Tech stack is not shown on the desk page (people go to GitHub). No "full details on GitHub" line either; the GitHub link implies it.
+- Tile hover: small lift, stronger flat shadow, 1-2px solid pink border, image scales ~1.04 inside its slot. No gradients, glow or frosted glass. ~150ms, respects `prefers-reduced-motion`.
+- Smaller type and more padding than the old text panel (it felt cramped). Grid scrolls vertically when projects outgrow the visible rows.
+- **Main page (`index.html`, `index.css`, `src/index.ts`) is not to be touched** until we convert the whole site to the desk style.
+- Code structure (encapsulation): `Project` type and the projects array live in their own file; the monitor setup (tile rendering, screen behaviour) lives in its own file; monitor-specific code is moved out of `desk.ts` and `scene.ts`.

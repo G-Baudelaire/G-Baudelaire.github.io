@@ -22,33 +22,7 @@
 <!-- ***** Sub-screens. Shown one at a time when an item is selected. ***** -->
 <div class="panels" id="panels" hidden>
 
-  <!-- Monitor -->
-  <section class="panel" id="panel-projects" hidden aria-label="Projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Traveler Backend</h3>
-      <p>Web server and PostgreSQL database for a travel planning application.</p>
-      <p class="tag">C++, PL/pgSQL, Bash &middot; Crow CPP, Libpqxx, GoogleTest, Golang-Migrate &middot; Docker, AWS</p>
-      <a href="https://github.com/D-And-G-Productions/Traveler" target="_blank" rel="noopener">Source code &rarr;</a>
-    </div>
-
-    <div class="project">
-      <h3>ML Age Prediction Application</h3>
-      <p>Age prediction application using custom and fine-tuned (ResNet) convolutional neural networks.</p>
-      <p class="tag">Python, TypeScript, Bash, CSS, HTML &middot; TensorFlow, FastAPI, NumPy, React &middot; Docker, GCP, GitHub Actions</p>
-      <a href="https://gmccaulayjones.com/age-prediction" target="_blank" rel="noopener">Visit site &rarr;</a>
-      &nbsp;
-      <a href="https://github.com/G-Baudelaire/age-prediction" target="_blank" rel="noopener">Source code &rarr;</a>
-    </div>
-
-    <div class="project">
-      <h3>C++ Library For Distributed Matrix Operations</h3>
-      <p>Custom C++ library to perform matrix operations and manipulations.</p>
-      <p class="tag">C++, MPI, GoogleTest</p>
-      <a href="https://github.com/G-Baudelaire/DistributedMatrixLibrary" target="_blank" rel="noopener">Source code &rarr;</a>
-    </div>
-  </section>
+  <!-- Monitor: the project tiles are built in src/desk/monitor.ts -->
 
   <!-- Picture frame: the photo itself is inside the frame on the desk; this is the text beside it -->
   <section class="panel" id="panel-bio" hidden>

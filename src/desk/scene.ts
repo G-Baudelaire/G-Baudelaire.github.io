@@ -42,13 +42,21 @@ export interface Rect {
  * screen:  the panel is rendered ON the object (monitor, phone). `screen` is the
  *          screen area in percent of the item's box; `fit` is how much of the
  *          viewport that area fills once zoomed. The content is interactive.
+ *          `persistent` keeps the content visible when zoomed out (not interactive until zoomed in).
  * side:    the item zooms to `anchor` (percent of the viewport) and the panel
  *          appears beside it, on the opposite half (anchor.x > 50 puts the item
  *          on the right and the panel on the left).
  * overlay: the item zooms to the centre and the panel floats over the scene.
  */
+export interface ScreenView {
+  kind: typeof ViewKind.Screen;
+  screen: Rect;
+  fit: number;
+  persistent?: boolean;
+}
+
 export type View =
-  | { kind: typeof ViewKind.Screen; screen: Rect; fit: number }
+  | ScreenView
   | { kind: typeof ViewKind.Side; anchor: { x: number; y: number } }
   | { kind: typeof ViewKind.Overlay };
 
@@ -79,6 +87,7 @@ export type Item = SelectableItem | DecorItem;
 
 export const BACKGROUND = "assets/background.svg";
 
+/* The monitor lives in monitor.ts; desk.ts adds it to these. */
 export const ITEMS: readonly Item[] = [
   {
     id: "frame", label: "About me", src: "assets/frame.svg",
@@ -90,12 +99,6 @@ export const ITEMS: readonly Item[] = [
     id: "cap", label: "Qualifications", src: "assets/cap.svg",
     x: 76, y: 8, w: 16, h: 20,
     selectable: true, panel: PanelId.Quals, view: { kind: ViewKind.Side, anchor: { x: 75, y: 45 } },
-  },
-  {
-    id: "monitor", label: "Projects", src: "assets/monitor.svg",
-    x: 28, y: 12.4, w: 36, h: 45.6,
-    selectable: true, panel: PanelId.Projects,
-    view: { kind: ViewKind.Screen, screen: { x: 3.8, y: 5.4, w: 92.4, h: 73.2 }, fit: 0.8 },
   },
   {
     id: "books", label: "Reading", src: "assets/books.svg",
