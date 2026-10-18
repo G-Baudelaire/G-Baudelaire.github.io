@@ -6,7 +6,7 @@
 import { PanelId, ViewKind, type SelectableItem } from "./scene.js";
 import { PROJECTS, type Project } from "./projects.js";
 
-const GITHUB_ICON = "../images/github.svg";
+const GITHUB_ICON = "../images/github/GitHub_Invertocat_Black.svg";
 
 export const MONITOR_ITEM: SelectableItem = {
   id: "monitor", label: "Projects", src: "assets/monitor.svg",

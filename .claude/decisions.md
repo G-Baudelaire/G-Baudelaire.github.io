@@ -51,3 +51,10 @@ Log of design decisions for the site overhaul. Newest at the bottom.
 - Smaller type and more padding than the old text panel (it felt cramped). Grid scrolls vertically when projects outgrow the visible rows.
 - **Main page (`index.html`, `index.css`, `src/index.ts`) is not to be touched** until we convert the whole site to the desk style.
 - Code structure (encapsulation): `Project` type and the projects array live in their own file; the monitor setup (tile rendering, screen behaviour) lives in its own file; monitor-specific code is moved out of `desk.ts` and `scene.ts`.
+
+## 2026-10-18 (phone)
+
+- Phone follows the monitor pattern: item + apps in `src/desk/phone.ts`, home screen is `persistent` (always visible on the desk phone, interactive only when zoomed in). Placeholder screen squares removed from `phone.svg`.
+- Apps: Mail, GitHub, LinkedIn, Substack, as flat tiles (Substack uses its own app logo, GitHub the white Invertocat on a dark tile). The old "Phone" app is dropped until there is a number to show.
+- **All account/link constants live in `src/desk/links.ts`** (email, GitHub profile + Traveler org, LinkedIn, Substack, site). Desk code imports from there; do not hard-code URLs elsewhere in `src/desk/`. The main page is untouched and keeps its own copies.
+- Monitor tiles now use `images/github/GitHub_Invertocat_Black.svg` (no CSS invert).

@@ -248,7 +248,7 @@ a { color: var(--pink); }
 .tile .tile__desc { grid-area: desc; align-self: start; margin: 0; font-size: 0.8em; line-height: 1.45; overflow: hidden; }
 .tile__links { grid-area: links; display: flex; align-items: center; gap: 0.8em; }
 .tile__source { display: inline-flex; }
-.tile .tile__github { width: 1.6em; height: 1.6em; filter: invert(1); } /* icon art is light; the screen is white */
+.tile .tile__github { width: 1.6em; height: 1.6em; }
 .tile__site { font-size: 0.8em; color: #c8102e; }
 .tile a:focus-visible { outline: 0.15em solid var(--pink); outline-offset: 0.2em; }
 @media (prefers-reduced-motion: reduce) {
@@ -260,13 +260,12 @@ a { color: var(--pink); }
 .badges { display: flex; flex-wrap: wrap; gap: 1.2em; margin-top: 1em; }
 .badges img { width: 110px; }
 
-/* Phone home screen */
+/* Phone home screen: flat icon tiles on a flat wallpaper. */
 .phone__time { text-align: center; font-size: 0.9em; opacity: 0.7; margin-bottom: 1.4em; }
 .phone__apps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4em 0.2em; margin: 0; }
 .app { display: grid; justify-items: center; gap: 0.4em; text-decoration: none; color: var(--white); font-size: 0.55em; }
-.app__icon { display: grid; place-items: center; width: 3.6em; height: 3.6em; border-radius: 0.9em; }
-.app__icon span { font-size: 1.8em; line-height: 1; }
+.app__icon { display: grid; place-items: center; width: 3.6em; height: 3.6em; border-radius: 0.9em; overflow: hidden; }
+.app__glyph { font-size: 1.8em; line-height: 1; }
+.app .app__img { display: block; width: 62%; height: 62%; object-fit: contain; }
+.app .app__img--bleed { width: 100%; height: 100%; }
 .app:hover .app__icon, .app:focus-visible .app__icon { outline: 0.15em solid var(--pink); }
-.app--mail .app__icon { background: #2f7de1; }
-.app--phone .app__icon { background: #35b558; }
-.app--substack .app__icon { background: #ff6719; }

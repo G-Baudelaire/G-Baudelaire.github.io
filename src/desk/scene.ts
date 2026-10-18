@@ -87,7 +87,7 @@ export type Item = SelectableItem | DecorItem;
 
 export const BACKGROUND = "assets/background.svg";
 
-/* The monitor lives in monitor.ts; desk.ts adds it to these. */
+/* The monitor and phone live in monitor.ts and phone.ts; desk.ts adds them to these. */
 export const ITEMS: readonly Item[] = [
   {
     id: "frame", label: "About me", src: "assets/frame.svg",
@@ -104,12 +104,6 @@ export const ITEMS: readonly Item[] = [
     id: "books", label: "Reading", src: "assets/books.svg",
     x: 17, y: 44, w: 7, h: 14,
     selectable: true, panel: PanelId.Books, view: { kind: ViewKind.Side, anchor: { x: 75, y: 45 } },
-  },
-  {
-    id: "phone", label: "Contact", src: "assets/phone.svg",
-    x: 66, y: 44, w: 4, h: 12,
-    selectable: true, panel: PanelId.Contact,
-    view: { kind: ViewKind.Screen, screen: { x: 12.5, y: 13, w: 75, h: 74 }, fit: 0.75 },
   },
   {
     id: "notepad", label: "Notes setup", src: "assets/notepad.svg",

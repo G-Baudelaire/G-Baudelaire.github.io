@@ -1,6 +1,7 @@
 /* Builds the desk from scene.ts and handles hover / select / zoom. */
 
 import { MONITOR_ITEM, buildProjectsPanel } from "./monitor.js";
+import { PHONE_ITEM, buildContactPanel } from "./phone.js";
 import { BACKGROUND, ITEMS, ViewKind, type Item, type PanelId, type Photo, type Rect, type ScreenView, type SelectableItem, type View } from "./scene.js";
 
 const ZOOM_MS = 700;
@@ -47,8 +48,9 @@ function percentStyle(r: Rect): string {
 
 function buildScene(): void {
   panels.appendChild(buildProjectsPanel());
+  panels.appendChild(buildContactPanel());
   stage.appendChild(buildBackground());
-  for (const item of [MONITOR_ITEM, ...ITEMS]) stage.appendChild(buildItem(item));
+  for (const item of [MONITOR_ITEM, PHONE_ITEM, ...ITEMS]) stage.appendChild(buildItem(item));
 }
 
 function buildBackground(): HTMLImageElement {
