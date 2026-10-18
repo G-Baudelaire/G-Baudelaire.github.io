@@ -164,8 +164,9 @@ a { color: var(--pink); }
 .panel ul { padding-left: 1.4em; }
 .tag { opacity: 0.7; font-size: 0.9em; }
 
-/* Bio sits to the right of the zoomed picture frame, with no dimming */
+/* Side panels sit beside the zoomed item (bio right of the frame, qualifications left of the cap), with no dimming */
 .panels[data-mode="side"] { place-items: center end; padding-left: 50vw; }
+.panels[data-mode="side"][data-side="left"] { place-items: center start; padding-left: 4vw; padding-right: 50vw; }
 .panels--open[data-mode="side"] { background: transparent; }
 
 /* Panels rendered on an object's screen. Sizes are in cqw (% of the stage width),
@@ -185,6 +186,24 @@ a { color: var(--pink); }
 #panel-projects { --panel: #0f2a3d; }
 #panel-contact { --panel: #274b63; font-size: 0.3cqw; padding: 0.5cqw 0.15cqw; }
 .item[data-id="phone"] .screen { border-radius: 0.15cqw; }
+
+/* Back button: only while zoomed in */
+.back {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+  font: inherit;
+  font-size: 14px;
+  color: var(--black);
+  background: var(--pink);
+  border: 0;
+  border-radius: 4px;
+  padding: 0.4em 1em;
+  cursor: pointer;
+}
+.zoomed .back { display: block; }
 
 /* Projects */
 .project { padding: 1.2em 0; border-top: 1px solid #2c2a36; }

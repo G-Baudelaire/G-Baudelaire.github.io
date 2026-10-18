@@ -14,7 +14,7 @@ To use the final artwork, replace the file (same name) or edit `src` in `../../s
 |------|--------|-----------|
 | frame | Picture frame (wall) | yes |
 | cap | Graduation cap (wall) | yes |
-| monitor | Monitor with stand | yes |
+| monitor | Monitor with stand (placeholder is 576x410, screen 16:9-ish) | yes |
 | books | Book stack | yes |
 | phone | iPhone | yes |
 | notepad | Notepad (and pencil) | yes |

@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "dev": "tsc --watch --preserveWatchOutput & trap 'kill $!' EXIT; npx live-server --open=desk/index.html"
   },
   "devDependencies": {
     "typescript": "^5.9.0"

@@ -1,6 +1,6 @@
 /* Builds the desk from scene.ts and handles hover / select / zoom. */
 
-import { BACKGROUND, ITEMS, type Item, type PanelId, type Photo, type Rect, type SelectableItem } from "./scene.js";
+import { BACKGROUND, ITEMS, ViewKind, type Item, type PanelId, type Photo, type Rect, type SelectableItem, type View } from "./scene.js";
 
 const ZOOM_MS = 700;
 const FADE_MS = 300;
@@ -11,6 +11,13 @@ const PANEL_REVEAL_MS = ZOOM_MS * 0.7;
 /* How much of the viewport a zoomed item may fill (fraction of width / height). */
 const OVERLAY_FIT = { w: 0.4, h: 0.55 };
 const SIDE_FIT = { w: 0.4, h: 0.7 };
+
+/* Which half of the viewport a side panel takes. Values match `data-side` in desk.css. */
+const PanelSide = {
+  Left: "left",
+  Right: "right",
+} as const;
+type PanelSide = (typeof PanelSide)[keyof typeof PanelSide];
 
 function getElement<T extends HTMLElement>(id: string): T {
   const el = document.getElementById(id);
@@ -61,7 +68,7 @@ function buildItem(item: Item): HTMLElement {
 
   buildItemButton(wrapper, item, image);
   if (item.photo) buildItemPhoto(item.photo, wrapper);
-  if (item.view.kind === "screen") buildItemScreen(item.panel, item.view.screen, wrapper);
+  if (item.view.kind === ViewKind.Screen) buildItemScreen(item.panel, item.view.screen, wrapper);
   return wrapper;
 }
 
@@ -178,14 +185,14 @@ function toStageRect(item: Rect, inner: Rect): Rect {
 function zoomTarget(item: SelectableItem): ZoomTarget {
   const view = item.view;
   switch (view.kind) {
-    case "screen": {
+    case ViewKind.Screen: {
       const area = toStageRect(item, view.screen);
       const scale = scaleToFit(area, { w: view.fit, h: view.fit });
       return { scale, ...centreOf(area), ax: VIEWPORT_CENTRE.x, ay: VIEWPORT_CENTRE.y };
     }
-    case "side":
+    case ViewKind.Side:
       return { scale: scaleToFit(item, SIDE_FIT), ...centreOf(item), ax: view.anchor.x, ay: view.anchor.y };
-    case "overlay":
+    case ViewKind.Overlay:
       return { scale: scaleToFit(item, OVERLAY_FIT), ...centreOf(item), ax: VIEWPORT_CENTRE.x, ay: VIEWPORT_CENTRE.y };
   }
 }
@@ -219,20 +226,26 @@ function zoomTo(item: SelectableItem, wrapper: HTMLElement): void {
 
 /* Screen content fades in on the object; other panels fade in over the scene. */
 function showContent({ item, wrapper, panel }: OpenState): void {
-  if (item.view.kind === "screen") {
+  if (item.view.kind === ViewKind.Screen) {
     wrapper.classList.add("item--open");
     return;
   }
   panels.dataset["mode"] = item.view.kind;
+  panels.dataset["side"] = panelSide(item.view);
   panel.hidden = false;
   panels.hidden = false;
   requestAnimationFrame(() => panels.classList.add("panels--open"));
 }
 
+/* Which half of the viewport the panel takes: the opposite one to the zoomed item. */
+function panelSide(view: View): PanelSide {
+  return view.kind === ViewKind.Side && view.anchor.x > 50 ? PanelSide.Left : PanelSide.Right;
+}
+
 function hideContent({ item, wrapper, panel }: OpenState): void {
   wrapper.classList.remove("item--open");
   panels.classList.remove("panels--open");
-  if (item.view.kind === "screen") return;
+  if (item.view.kind === ViewKind.Screen) return;
   window.setTimeout(() => {
     panel.hidden = true;
     panels.hidden = true;
@@ -249,7 +262,10 @@ function zoomOut(): void {
 
 backButton.addEventListener("click", zoomOut);
 window.addEventListener("keydown", (e: KeyboardEvent) => {
-  if (e.key === "Escape") zoomOut();
+  switch (e.key) {
+    case "Escape":
+      zoomOut();
+  }
 });
 
 buildScene();
