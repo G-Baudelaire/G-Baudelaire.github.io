@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'JetBrainsMonoNerdFont';
-  src: url('../fonts/JetBrainsMonoNerdFont-Regular.ttf');
+  src: url('/fonts/JetBrainsMonoNerdFont-Regular.ttf');
 }
 
 :root {

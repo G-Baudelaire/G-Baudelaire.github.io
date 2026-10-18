@@ -3,8 +3,8 @@
  *
  * x, y, w, h are percentages of the 16:9 stage (top-left origin).
  * To swap in real artwork: export each item as a tightly cropped transparent
- * image, drop it in ./assets over the placeholder (or change `src`), and tweak
- * the box below until it sits right. See assets/README.md.
+ * image, drop it in public/desk/assets over the placeholder (or change `src`), and tweak
+ * the box below until it sits right. See public/desk/assets/README.md.
  *
  * selectable: true  -> hover highlight, click zooms in and opens panel `panel`
  * selectable: false -> decorative only
