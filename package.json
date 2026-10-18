@@ -1,12 +1,15 @@
 {
   "name": "g-baudelaire-github-io",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "dev": "tsc --watch --preserveWatchOutput & trap 'kill $!' EXIT; npx live-server --open=desk/index.html"
+    "dev": "vite --open /desk/",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.0",
+    "vite": "^8.3.4"
   }
 }

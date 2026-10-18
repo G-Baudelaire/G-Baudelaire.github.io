@@ -1,6 +1,8 @@
 /* Builds the desk from scene.ts and handles hover / select / zoom. */
 
-import { BACKGROUND, ITEMS, ViewKind, type Item, type PanelId, type Photo, type Rect, type SelectableItem, type View } from "./scene.js";
+import { MONITOR_ITEM, buildProjectsPanel } from "./monitor.js";
+import { PHONE_ITEM, buildContactPanel } from "./phone.js";
+import { BACKGROUND, ITEMS, ViewKind, type Item, type PanelId, type Photo, type Rect, type ScreenView, type SelectableItem, type View } from "./scene.js";
 
 const ZOOM_MS = 700;
 const FADE_MS = 300;
@@ -45,8 +47,10 @@ function percentStyle(r: Rect): string {
 /* ----- Building the scene ----- */
 
 function buildScene(): void {
+  panels.appendChild(buildProjectsPanel());
+  panels.appendChild(buildContactPanel());
   stage.appendChild(buildBackground());
-  for (const item of ITEMS) stage.appendChild(buildItem(item));
+  for (const item of [MONITOR_ITEM, PHONE_ITEM, ...ITEMS]) stage.appendChild(buildItem(item));
 }
 
 function buildBackground(): HTMLImageElement {
@@ -68,7 +72,7 @@ function buildItem(item: Item): HTMLElement {
 
   buildItemButton(wrapper, item, image);
   if (item.photo) buildItemPhoto(item.photo, wrapper);
-  if (item.view.kind === ViewKind.Screen) buildItemScreen(item.panel, item.view.screen, wrapper);
+  if (item.view.kind === ViewKind.Screen) buildItemScreen(item.panel, item.view, wrapper);
   return wrapper;
 }
 
@@ -116,10 +120,14 @@ function buildItemPhoto(photo: Photo, wrapper: HTMLElement): void {
 }
 
 /* Move the panel onto the object so its content lives on the screen. */
-function buildItemScreen(panelId: PanelId, area: Rect, wrapper: HTMLElement): void {
+function buildItemScreen(panelId: PanelId, view: ScreenView, wrapper: HTMLElement): void {
   const screen = document.createElement("div");
   screen.className = "screen";
-  screen.style.cssText = percentStyle(area);
+  screen.style.cssText = percentStyle(view.screen);
+  if (view.persistent) {
+    screen.classList.add("screen--persistent");
+    screen.inert = true; // not focusable or clickable until zoomed in
+  }
   const panel = getElement(`panel-${panelId}`);
   panel.hidden = false;
   panel.classList.add("panel--screen");
@@ -228,6 +236,7 @@ function zoomTo(item: SelectableItem, wrapper: HTMLElement): void {
 function showContent({ item, wrapper, panel }: OpenState): void {
   if (item.view.kind === ViewKind.Screen) {
     wrapper.classList.add("item--open");
+    setScreenLive(wrapper, true);
     return;
   }
   panels.dataset["mode"] = item.view.kind;
@@ -242,8 +251,15 @@ function panelSide(view: View): PanelSide {
   return view.kind === ViewKind.Side && view.anchor.x > 50 ? PanelSide.Left : PanelSide.Right;
 }
 
+/* A persistent screen is only interactive while its item is zoomed in. */
+function setScreenLive(wrapper: HTMLElement, live: boolean): void {
+  const screen = wrapper.querySelector<HTMLElement>(".screen--persistent");
+  if (screen) screen.inert = !live;
+}
+
 function hideContent({ item, wrapper, panel }: OpenState): void {
   wrapper.classList.remove("item--open");
+  setScreenLive(wrapper, false);
   panels.classList.remove("panels--open");
   if (item.view.kind === ViewKind.Screen) return;
   window.setTimeout(() => {

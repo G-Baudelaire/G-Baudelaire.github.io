@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="shortcut icon" type="image/png" href="../images/favicon.svg"/>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.svg"/>
   <title>Germain McCaulay-Jones | Desk (Work in Progress)</title>
   <meta name="description" content="Interactive desk portfolio for Germain McCaulay-Jones (work in progress).">
   <link rel="stylesheet" href="desk.css"/>
@@ -22,33 +22,7 @@
 <!-- ***** Sub-screens. Shown one at a time when an item is selected. ***** -->
 <div class="panels" id="panels" hidden>
 
-  <!-- Monitor -->
-  <section class="panel" id="panel-projects" hidden aria-label="Projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Traveler Backend</h3>
-      <p>Web server and PostgreSQL database for a travel planning application.</p>
-      <p class="tag">C++, PL/pgSQL, Bash &middot; Crow CPP, Libpqxx, GoogleTest, Golang-Migrate &middot; Docker, AWS</p>
-      <a href="https://github.com/D-And-G-Productions/Traveler" target="_blank" rel="noopener">Source code &rarr;</a>
-    </div>
-
-    <div class="project">
-      <h3>ML Age Prediction Application</h3>
-      <p>Age prediction application using custom and fine-tuned (ResNet) convolutional neural networks.</p>
-      <p class="tag">Python, TypeScript, Bash, CSS, HTML &middot; TensorFlow, FastAPI, NumPy, React &middot; Docker, GCP, GitHub Actions</p>
-      <a href="https://gmccaulayjones.com/age-prediction" target="_blank" rel="noopener">Visit site &rarr;</a>
-      &nbsp;
-      <a href="https://github.com/G-Baudelaire/age-prediction" target="_blank" rel="noopener">Source code &rarr;</a>
-    </div>
-
-    <div class="project">
-      <h3>C++ Library For Distributed Matrix Operations</h3>
-      <p>Custom C++ library to perform matrix operations and manipulations.</p>
-      <p class="tag">C++, MPI, GoogleTest</p>
-      <a href="https://github.com/G-Baudelaire/DistributedMatrixLibrary" target="_blank" rel="noopener">Source code &rarr;</a>
-    </div>
-  </section>
+  <!-- Monitor: the project tiles are built in src/desk/monitor.ts -->
 
   <!-- Picture frame: the photo itself is inside the frame on the desk; this is the text beside it -->
   <section class="panel" id="panel-bio" hidden>
@@ -56,7 +30,7 @@
     <p>Graduate open to software engineering and data engineering roles in London.</p>
     <p>My hobbies and past-times include journaling, programming, powerlifting and calisthenics, gaming, cooking, fashion, politics and reading.</p>
     <!-- TODO: write the fuller biography -->
-    <p><a href="../pdfs/Germain%20McCaulay-Jones.pdf" download>Download my CV &rarr;</a></p>
+    <p><a href="/pdfs/Germain%20McCaulay-Jones.pdf" download>Download my CV &rarr;</a></p>
   </section>
 
   <!-- Graduation cap -->
@@ -66,10 +40,10 @@
     <!-- TODO: institution, dates, grade, key modules -->
     <h3>Certificates &amp; badges</h3>
     <div class="badges">
-      <img src="../images/badges/AWS Educate Getting Started with Databases - Training Badge.png" alt="AWS Getting Started with Databases"/>
-      <img src="../images/badges/AWS Educate Getting Started with Storage - Training Badge.png" alt="AWS Getting Started with Storage"/>
-      <img src="../images/badges/AWS Educate Introduction to Cloud 101 - Training Badge.png" alt="AWS Introduction to Cloud 101"/>
-      <img src="../images/badges/Basics of Quantum Information.png" alt="IBM Basics of Quantum Information"/>
+      <img src="/images/badges/AWS Educate Getting Started with Databases - Training Badge.png" alt="AWS Getting Started with Databases"/>
+      <img src="/images/badges/AWS Educate Getting Started with Storage - Training Badge.png" alt="AWS Getting Started with Storage"/>
+      <img src="/images/badges/AWS Educate Introduction to Cloud 101 - Training Badge.png" alt="AWS Introduction to Cloud 101"/>
+      <img src="/images/badges/Basics of Quantum Information.png" alt="IBM Basics of Quantum Information"/>
     </div>
   </section>
 
@@ -87,17 +61,7 @@
     </ul>
   </section>
 
-  <!-- iPhone: rendered on the phone's own screen -->
-  <section class="panel" id="panel-contact" hidden aria-label="Contact">
-    <p class="phone__time">9:41</p>
-    <div class="phone__apps">
-      <a class="app app--mail" href="mailto:gmccaulayjones@gmail.com"><span class="app__icon"><span>&#9993;</span></span>Mail</a>
-      <!-- TODO: real phone number -->
-      <a class="app app--phone" href="tel:+440000000000"><span class="app__icon"><span>&#9742;</span></span>Phone</a>
-      <!-- TODO: real Substack URL -->
-      <a class="app app--substack" href="https://substack.com" target="_blank" rel="noopener"><span class="app__icon"><span>&#9776;</span></span>Substack</a>
-    </div>
-  </section>
+  <!-- iPhone: the home screen is built in src/desk/phone.ts -->
 
   <!-- Notepad -->
   <section class="panel" id="panel-notes" hidden>
@@ -108,6 +72,6 @@
 
 </div>
 
-<script type="module" src="../js/desk/desk.js"></script>
+<script type="module" src="/src/desk/desk.ts"></script>
 </body>
 </html>
